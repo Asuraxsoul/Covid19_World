@@ -1,22 +1,15 @@
-# covid_world
-
-A new Flutter application.
+# Covid-19 World Situation
+> This application data is scraped from the World Health Organization
+> website: <u>https://covid19.who.int/<u>
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Learning Points:
+1. Basic web scraping from a website
+2. UI/UX design
+3. Flutter widget lifecycle
+4. Project planning
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-Learning Points:
-# Basic web scraping
-# UI/UX design
-# Web Scraping from WHO website
-# Widget lifecycle, refresh the web scraping data every time the screen is mounted
+## Tech Stack
+1. Flutter SDK
