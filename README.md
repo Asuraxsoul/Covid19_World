@@ -13,3 +13,4 @@
 
 ## Tech Stack
 1. Flutter SDK
+2. Firebase web hosting
