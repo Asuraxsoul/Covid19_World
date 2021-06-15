@@ -1,10 +1,12 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:covid_world/adapt_screen_sizes.dart';
 import 'package:covid_world/constants.dart';
-import 'package:covid_world/components/glowing_button.dart';
+
+import 'package:covid_world/components/header.dart';
+import 'package:covid_world/components/side_dash.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -14,56 +16,45 @@ class DashboardScreen extends StatelessWidget {
         padding: EdgeInsets.all(defaultPadding),
         child: Column(
           children: [
+            Header(),
+            SizedBox(height: defaultPadding),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Text(
-                  "Dashboard",
-                  style: Theme.of(context).textTheme.headline6,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 5,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Singapore",
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                          ElevatedButton.icon(
+                            icon: Icon(Icons.phonelink_ring_rounded),
+                            label: Text(
+                              "Get updated news at facebook MOH",
+                              maxLines: 1,
+                              overflow: TextOverflow.visible,
+                            ),
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.all(defaultPadding),
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
-                  width: 30,
+                  width: defaultPadding,
                 ),
                 Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      fillColor: secondaryColor,
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
-                      suffixIcon: InkWell(
-                        child: Container(
-                          padding: EdgeInsets.all(defaultPadding * 0.75),
-                          margin: EdgeInsets.symmetric(
-                              horizontal: defaultPadding / 2),
-                          decoration: BoxDecoration(
-                            color: primaryColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
-                          child: SvgPicture.asset("assets/icons/search.svg"),
-                        ),
-                        onTap: () {},
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 30,
-                ),
-                Container(
-                  child: GlowingButton(
-                    color1: Colors.pinkAccent,
-                    color2: Colors.blueAccent,
-                    buttonIcon1: "assets/icons/fire.svg",
-                    buttonIcon2: "assets/icons/fire_colorless.svg",
-                    buttonText: "Quote-of-the-Day",
-                  ),
+                  flex: 2,
+                  child: SideDash(),
                 ),
               ],
             ),

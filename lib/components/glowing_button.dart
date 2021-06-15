@@ -98,6 +98,9 @@ class _GlowingButtonState extends State<GlowingButton> {
         height: 48,
         width: 175,
         decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.white54,
+            ),
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
