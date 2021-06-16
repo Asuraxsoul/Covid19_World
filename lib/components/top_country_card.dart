@@ -41,11 +41,22 @@ class _TopCountryCardState extends State<TopCountryCard> {
       ),
       child: Row(
         children: [
-          SizedBox(
-            height: 20,
-            width: 20,
+          Container(
+            height: 30,
+            width: 30,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.pinkAccent.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 15,
+                  offset: Offset(0, 0),
+                ),
+              ],
+            ),
             child: SvgPicture.asset(widget.countryImage),
           ),
+          // ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
@@ -59,10 +70,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
                   ),
                   Text(
                     formatter.format(widget.cases),
-                    style: Theme.of(context)
-                        .textTheme
-                        .caption
-                        .copyWith(color: Colors.white70),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -86,6 +97,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
                 formatter.format(widget.deaths),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Text(
                 "deaths",

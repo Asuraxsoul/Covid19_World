@@ -1,12 +1,16 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 
-import 'package:covid_world/adapt_screen_sizes.dart';
+import 'package:covid_world/model/sg_info.dart';
 import 'package:covid_world/constants.dart';
 
 import 'package:covid_world/components/header.dart';
 import 'package:covid_world/components/side_dash.dart';
+import 'package:covid_world/components/sg_info_card.dart';
+
+import 'package:covid_world/components/line_chart.dart';
+import 'package:covid_world/components/orbit.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -45,6 +49,80 @@ class DashboardScreen extends StatelessWidget {
                             onPressed: () {},
                           ),
                         ],
+                      ),
+                      SizedBox(height: defaultPadding),
+                      GridView.builder(
+                        shrinkWrap: true,
+                        itemCount: 4,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4,
+                          crossAxisSpacing: defaultPadding,
+                          childAspectRatio: 1.2,
+                        ),
+                        itemBuilder: (context, index) =>
+                            SgInfoCard(info: sgDetails[index]),
+                      ),
+                      SizedBox(height: defaultPadding),
+                      Container(
+                        padding: EdgeInsets.all(defaultPadding),
+                        decoration: BoxDecoration(
+                          color: secondaryColor,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Overall Statistics",
+                              style: Theme.of(context).textTheme.subtitle1,
+                            ),
+                            SizedBox(height: defaultPadding * 0.2),
+                            SizedBox(
+                              height: defaultPadding * 0.5,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    top: BorderSide(color: Colors.grey),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                    flex: 9,
+                                    child: Container(child: SgLineChart())),
+                                Expanded(flex: 1, child: Container()),
+                                Expanded(
+                                  flex: 5,
+                                  child: Container(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        SizedBox(
+                                          height: 191,
+                                          child: OrbitingChart(),
+                                        ),
+                                        Text(
+                                          "Expected 60% to be vaccinated by September 2021",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                          ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.fade,
+                                          textAlign: TextAlign.end,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
