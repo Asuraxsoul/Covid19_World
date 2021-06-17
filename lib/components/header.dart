@@ -9,16 +9,16 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      //mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         Text(
-          "Dashboard",
-          style: Theme.of(context).textTheme.headline6,
+          "Covid19 - Dashboard",
+          style: TextStyle(
+            fontFamily: "ViaodaLibre",
+            fontSize: 24,
+          ),
         ),
-        // SizedBox(
-        //   width: defaultPadding,
-        // ),
-        AdaptScreenSizes.isDesktop(context)
+        (AdaptScreenSizes.isDesktop(context) ||
+                AdaptScreenSizes.isTablet(context))
             ? Spacer(
                 flex: 2,
               )
@@ -57,7 +57,8 @@ class Header extends StatelessWidget {
         // SizedBox(
         //   width: 30,
         // ),
-        AdaptScreenSizes.isDesktop(context)
+        (AdaptScreenSizes.isDesktop(context) ||
+                AdaptScreenSizes.isTablet(context))
             ? Spacer(
                 flex: 1,
               )
@@ -67,7 +68,7 @@ class Header extends StatelessWidget {
         Container(
           child: GlowingButton(
             color1: Colors.pinkAccent,
-            color2: Colors.blueAccent,
+            color2: Colors.indigoAccent,
             buttonIcon1: "assets/icons/fire.svg",
             buttonIcon2: "assets/icons/fire_colorless.svg",
             buttonText: "Quote-of-the-Day",

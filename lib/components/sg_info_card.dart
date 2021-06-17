@@ -54,6 +54,10 @@ class SgInfoCard extends StatelessWidget {
           ),
           Text(
             info.title,
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 14,
+            ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
@@ -92,31 +96,30 @@ class SgInfoCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       NumberFormat("###,###,###").format(info.numOfCases),
-                      style: Theme.of(context)
-                          .textTheme
-                          .caption
-                          .copyWith(color: Colors.white70),
-                      maxLines: 2,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Text(
                     info.status,
-                    style: Theme.of(context)
-                        .textTheme
-                        .caption
-                        .copyWith(color: Colors.white),
-                    maxLines: 2,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
               Text(
                 "confirmed cases",
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(color: Colors.white70),
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.white70,
+                ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),

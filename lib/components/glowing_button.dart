@@ -107,9 +107,10 @@ class _GlowingButtonState extends State<GlowingButton> {
           padding: EdgeInsets.all(8.0),
           duration: Duration(milliseconds: 100),
           height: 48,
-          width: 175,
+          width: 178,
           decoration: BoxDecoration(
               border: Border.all(
+                width: 2,
                 color: Colors.white54,
               ),
               borderRadius: BorderRadius.all(

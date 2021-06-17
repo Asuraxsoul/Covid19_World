@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class SgInfo {
   final String icon, title, status;
@@ -23,7 +24,8 @@ List sgDetails = [
     status: "High",
   ),
   SgInfo(
-    title: "Daily",
+    title:
+        "Daily [${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}]",
     numOfCases: 14,
     icon: "assets/icons/daily.svg",
     color: Colors.redAccent,

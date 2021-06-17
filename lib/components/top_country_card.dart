@@ -29,7 +29,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: defaultPadding / 2),
-      padding: EdgeInsets.all(defaultPadding),
+      padding: EdgeInsets.symmetric(
+        horizontal: defaultPadding,
+        vertical: defaultPadding * 0.75,
+      ),
       decoration: BoxDecoration(
         border: Border.all(
           width: 2,
@@ -39,78 +42,90 @@ class _TopCountryCardState extends State<TopCountryCard> {
           Radius.circular(10),
         ),
       ),
-      child: Row(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 30,
-            width: 30,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.pinkAccent.withOpacity(0.5),
-                  spreadRadius: 1,
-                  blurRadius: 15,
-                  offset: Offset(0, 0),
-                ),
-              ],
-            ),
-            child: SvgPicture.asset(widget.countryImage),
+          Text(
+            widget.country,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Quicksand"),
           ),
-          // ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          SizedBox(height: defaultPadding / 2),
+          Row(
+            children: [
+              Container(
+                height: 30,
+                width: 30,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.pinkAccent.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 15,
+                      offset: Offset(0, 0),
+                    ),
+                  ],
+                ),
+                child: SvgPicture.asset(widget.countryImage),
+              ),
+              // ),
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: defaultPadding),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        formatter.format(widget.cases),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        "confirmed cases",
+                        style: Theme.of(context)
+                            .textTheme
+                            .caption
+                            .copyWith(color: Colors.white70),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    widget.country,
+                    formatter.format(widget.deaths),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                  ),
-                  Text(
-                    formatter.format(widget.cases),
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    "confirmed cases",
+                    "deaths",
                     style: Theme.of(context)
                         .textTheme
                         .caption
                         .copyWith(color: Colors.white70),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                  ),
+                  )
                 ],
               ),
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                formatter.format(widget.deaths),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                "deaths",
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(color: Colors.white70),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              )
             ],
           ),
         ],
