@@ -18,7 +18,7 @@ class SgInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(
-        defaultPadding,
+        defaultPadding / 2,
       ),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -56,9 +56,9 @@ class SgInfoCard extends StatelessWidget {
             info.title,
             style: TextStyle(
               color: Colors.white70,
-              fontSize: 14,
+              fontSize: 12,
             ),
-            maxLines: 1,
+            maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
           Stack(
@@ -107,7 +107,7 @@ class SgInfoCard extends StatelessWidget {
                     info.status,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 14,
+                      fontSize: 12,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
