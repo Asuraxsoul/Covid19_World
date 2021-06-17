@@ -2,6 +2,8 @@ import 'package:covid_world/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:covid_world/model/quotes.dart';
+
 class GlowingButton extends StatefulWidget {
   final Color color1;
   final Color color2;
@@ -66,7 +68,7 @@ class _GlowingButtonState extends State<GlowingButton> {
                     ),
                   ),
                   content: Text(
-                    "\" You don't have to have it all figured out to move forward. \"",
+                    Quote.getQuote(),
                     style: TextStyle(
                       fontFamily: 'ViaodaLibre',
                       fontWeight: FontWeight.w500,
@@ -76,10 +78,11 @@ class _GlowingButtonState extends State<GlowingButton> {
                   ),
                   actions: <Widget>[
                     Text(
-                      "By Unknown",
+                      "By ${Quote.getAuthor()}",
                       style: TextStyle(
                         fontFamily: 'CormorantGaramond',
-                        fontSize: 24,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                         color: Colors.blueAccent,
                       ),
                     ),
