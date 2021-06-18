@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class SgInfo {
   final String icon, title, status;
@@ -15,7 +14,7 @@ class SgInfo {
   });
 }
 
-List sgDetails = [
+List<SgInfo> sgDetails = [
   SgInfo(
     title: "Total Cases",
     numOfCases: 62315,

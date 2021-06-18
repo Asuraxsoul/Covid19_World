@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AdaptScreenSizes extends StatelessWidget {
+  final Widget vertMobile;
   final Widget mobile;
   final Widget tablet;
   final Widget desktop;
 
   const AdaptScreenSizes({
     Key key,
+    this.vertMobile,
     this.mobile,
     this.tablet,
     this.desktop,
@@ -15,8 +17,12 @@ class AdaptScreenSizes extends StatelessWidget {
 // This size work fine on my design, maybe you need some customization depends on your design
 
   // This isMobile, isTablet, isDesktop helep us later
+  static bool isVertMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width < 660;
+
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width < 850;
+      MediaQuery.of(context).size.width < 850 &&
+      MediaQuery.of(context).size.width >= 660;
 
   static bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.width < 1100 &&
@@ -37,8 +43,10 @@ class AdaptScreenSizes extends StatelessWidget {
       return tablet;
     }
     // Or less then that we called it mobile
-    else {
+    else if (_size.width >= 660 && mobile != null) {
       return mobile;
+    } else {
+      return vertMobile;
     }
   }
 }

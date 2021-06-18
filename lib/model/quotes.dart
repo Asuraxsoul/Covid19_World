@@ -35,7 +35,7 @@ class Quote {
   }
 }
 
-List quotes = [
+List<Quote> quotes = [
   Quote(
     index: 1,
     dailyQuote:

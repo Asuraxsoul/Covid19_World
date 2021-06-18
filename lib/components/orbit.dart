@@ -125,7 +125,7 @@ class _OrbitingChartState extends State<OrbitingChart>
               PieChartData(
                 startDegreeOffset: -90,
                 sectionsSpace: 0,
-                centerSpaceRadius: 50,
+                centerSpaceRadius: 60,
                 sections: [
                   PieChartSectionData(
                     color: Color(0xFF00FFC8),

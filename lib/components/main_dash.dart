@@ -34,22 +34,23 @@ class MainDash extends StatelessWidget {
                 fontSize: 30,
               ),
             ),
-            Expanded(
-              flex: 2,
-              child: Text(
-                "dashboard last updated:\n17 June 2021, 10PM",
-                textAlign: TextAlign.end,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.white70,
-                ),
-              ),
-            ),
+            AdaptScreenSizes.isVertMobile(context)
+                ? SizedBox.shrink()
+                : Expanded(
+                    child: Text(
+                      "dashboard last updated:\n17 June 2021, 10PM",
+                      textAlign: TextAlign.end,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ),
             SizedBox(width: 20),
             Container(
-              width: 310,
+              width: 305,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -66,7 +67,7 @@ class MainDash extends StatelessWidget {
                 ),
               ),
               child: ElevatedButton.icon(
-                icon: Icon(Icons.phonelink_ring_rounded),
+                icon: Icon(Icons.phonelink_ring_rounded, size: 20),
                 label: Text(
                   "Get updated news at Facebook MOH",
                   maxLines: 1,
@@ -130,7 +131,7 @@ class MainDash extends StatelessWidget {
           shrinkWrap: true,
           itemCount: 4,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
+            crossAxisCount: AdaptScreenSizes.isVertMobile(context) ? 2 : 4,
             crossAxisSpacing: defaultPadding,
             mainAxisSpacing: defaultPadding,
             childAspectRatio: 1.1,
@@ -170,20 +171,54 @@ class MainDash extends StatelessWidget {
               Row(
                 children: [
                   Expanded(flex: 9, child: Container(child: SgLineChart())),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Expanded(
-                    flex: 5,
-                    child: Container(
+                  AdaptScreenSizes.isMobile(context)
+                      ? SizedBox.shrink()
+                      : SizedBox(
+                          width: 20,
+                        ),
+                  AdaptScreenSizes.isMobile(context)
+                      ? SizedBox.shrink()
+                      : Expanded(
+                          flex: 5,
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  height: 200,
+                                  child: OrbitingChart(),
+                                ),
+                                SizedBox(height: defaultPadding),
+                                Text(
+                                  "Expected 60% to be vaccinated by September 2021",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.fade,
+                                  textAlign: TextAlign.end,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                ],
+              ),
+              AdaptScreenSizes.isMobile(context)
+                  ? SizedBox(height: defaultPadding)
+                  : SizedBox.shrink(),
+              AdaptScreenSizes.isMobile(context)
+                  ? Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            height: 191,
+                            height: 200,
                             child: OrbitingChart(),
                           ),
+                          SizedBox(height: defaultPadding),
                           Text(
                             "Expected 60% to be vaccinated by September 2021",
                             style: TextStyle(
@@ -195,10 +230,8 @@ class MainDash extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
-                  ),
-                ],
-              ),
+                    )
+                  : SizedBox.shrink()
             ],
           ),
         ),
