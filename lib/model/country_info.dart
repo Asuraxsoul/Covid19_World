@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class CountryInfo {
   String country;
-  int totalCases;
-  int totalDeaths;
+  int totalCases, totalDeaths;
 
   CountryInfo({
     this.country,
@@ -13,8 +12,16 @@ class CountryInfo {
 }
 
 List<CountryInfo> countries = [
-  CountryInfo(country: "India"),
-  CountryInfo(country: "Singapore"),
+  CountryInfo(
+    country: "Global",
+    totalCases: 25,
+    totalDeaths: 15,
+  ),
+  CountryInfo(
+    country: "India",
+    totalCases: 25,
+    totalDeaths: 15,
+  ),
 ];
 
 List<String> suggestions = [];

@@ -50,7 +50,7 @@ class MainDash extends StatelessWidget {
                   ),
             SizedBox(width: 20),
             Container(
-              width: 305,
+              width: AdaptScreenSizes.isVertMobile(context) ? 165 : 305,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -69,7 +69,9 @@ class MainDash extends StatelessWidget {
               child: ElevatedButton.icon(
                 icon: Icon(Icons.phonelink_ring_rounded, size: 20),
                 label: Text(
-                  "Get updated news at Facebook MOH",
+                  AdaptScreenSizes.isVertMobile(context)
+                      ? "Facebook MOH"
+                      : "Get updated news at Facebook MOH",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -171,12 +173,14 @@ class MainDash extends StatelessWidget {
               Row(
                 children: [
                   Expanded(flex: 9, child: Container(child: SgLineChart())),
-                  AdaptScreenSizes.isMobile(context)
+                  (AdaptScreenSizes.isMobile(context) ||
+                          AdaptScreenSizes.isVertMobile(context))
                       ? SizedBox.shrink()
                       : SizedBox(
                           width: 20,
                         ),
-                  AdaptScreenSizes.isMobile(context)
+                  (AdaptScreenSizes.isMobile(context) ||
+                          AdaptScreenSizes.isVertMobile(context))
                       ? SizedBox.shrink()
                       : Expanded(
                           flex: 5,
@@ -205,10 +209,12 @@ class MainDash extends StatelessWidget {
                         ),
                 ],
               ),
-              AdaptScreenSizes.isMobile(context)
+              (AdaptScreenSizes.isMobile(context) ||
+                      AdaptScreenSizes.isVertMobile(context))
                   ? SizedBox(height: defaultPadding)
                   : SizedBox.shrink(),
-              AdaptScreenSizes.isMobile(context)
+              (AdaptScreenSizes.isMobile(context) ||
+                      AdaptScreenSizes.isVertMobile(context))
                   ? Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,

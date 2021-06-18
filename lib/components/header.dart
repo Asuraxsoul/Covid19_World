@@ -149,7 +149,9 @@ class _HeaderState extends State<Header> {
             color2: Colors.indigoAccent,
             buttonIcon1: "assets/icons/fire.svg",
             buttonIcon2: "assets/icons/fire_colorless.svg",
-            buttonText: "Quote-of-the-Day",
+            buttonText: AdaptScreenSizes.isVertMobile(context)
+                ? "Daily-Quote"
+                : "Quote-of-the-Day",
           ),
         ),
       ],

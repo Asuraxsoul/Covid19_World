@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:covid_world/model/quotes.dart';
+import 'package:covid_world/adapt_screen_sizes.dart';
 
 class GlowingButton extends StatefulWidget {
   final Color color1;
@@ -107,7 +108,7 @@ class _GlowingButtonState extends State<GlowingButton> {
           padding: EdgeInsets.all(8.0),
           duration: Duration(milliseconds: 100),
           height: 48,
-          width: 178,
+          width: AdaptScreenSizes.isVertMobile(context) ? 135 : 178,
           decoration: BoxDecoration(
               border: Border.all(
                 width: 2,
