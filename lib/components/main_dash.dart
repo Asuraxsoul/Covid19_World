@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:covid_world/model/sg_info.dart';
 
@@ -11,7 +12,7 @@ import 'package:covid_world/constants.dart';
 import 'package:covid_world/adapt_screen_sizes.dart';
 
 _launchMOHFBURL() async {
-  const url = 'https://www.facebook.com/sghealthministry/';
+  const url = 'https://www.moh.gov.sg/covid-19';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -19,7 +20,12 @@ _launchMOHFBURL() async {
   }
 }
 
-class MainDash extends StatelessWidget {
+class MainDash extends StatefulWidget {
+  @override
+  _MainDashState createState() => _MainDashState();
+}
+
+class _MainDashState extends State<MainDash> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -70,8 +76,8 @@ class MainDash extends StatelessWidget {
                 icon: Icon(Icons.phonelink_ring_rounded, size: 20),
                 label: Text(
                   AdaptScreenSizes.isVertMobile(context)
-                      ? "Facebook MOH"
-                      : "Get updated news at Facebook MOH",
+                      ? "Official MOH"
+                      : "Get updated official news at MOH",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -87,7 +93,7 @@ class MainDash extends StatelessWidget {
                           backgroundColor: tertiaryColor,
                           insetPadding: EdgeInsets.all(defaultPadding),
                           title: Text(
-                            "Redirect you to MOH-Facebook?",
+                            "Redirect you to MOH Website?",
                             style: TextStyle(
                               fontFamily: 'Quicksand',
                               //fontWeight: FontWeight.bold,
@@ -96,7 +102,7 @@ class MainDash extends StatelessWidget {
                             ),
                           ),
                           content: Text(
-                            "View most recent Ministry of Health posts on Facebook.",
+                            "View most recent Ministry of Health news on MOH official website.",
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -152,12 +158,25 @@ class MainDash extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Overall Statistics",
-                style: TextStyle(
-                  fontFamily: "Quicksand",
-                  fontSize: 20,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Overall Statistics",
+                    style: TextStyle(
+                      fontFamily: "Quicksand",
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    "Phase 3 Heightened",
+                    style: TextStyle(
+                      fontFamily: "ViaodaLibre",
+                      fontSize: 20,
+                      color: Colors.greenAccent,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: defaultPadding * 0.2),
               SizedBox(
