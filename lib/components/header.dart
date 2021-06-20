@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+import 'package:provider/provider.dart';
 
+import 'package:covid_world/components/glowing_button.dart';
+import 'package:covid_world/controllers/menu_controller.dart';
 import 'package:covid_world/adapt_screen_sizes.dart';
 import 'package:covid_world/constants.dart';
-import 'package:covid_world/components/glowing_button.dart';
-
-import 'package:covid_world/controllers/menu_controller.dart';
-import 'package:provider/provider.dart';
 
 class Header extends StatefulWidget {
   @override
@@ -16,64 +14,6 @@ class Header extends StatefulWidget {
 
 class _HeaderState extends State<Header> {
   TextEditingController controller = TextEditingController();
-
-  List<String> added = [];
-  String currentText = "";
-  GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
-
-  _FirstPageState() {
-    textField = SimpleAutoCompleteTextField(
-      key: key,
-      decoration: new InputDecoration(errorText: "Beans"),
-      controller: TextEditingController(text: "Starting Text"),
-      suggestions: suggestions,
-      textChanged: (text) => currentText = text,
-      clearOnSubmit: true,
-      textSubmitted: (text) => setState(() {
-        if (text != "") {
-          added.add(text);
-        }
-      }),
-    );
-  }
-
-  List<String> suggestions = [
-    "Apple",
-    "Armidillo",
-    "Actual",
-    "Actuary",
-    "America",
-    "Argentina",
-    "Australia",
-    "Antarctica",
-    "Blueberry",
-    "Cheese",
-    "Danish",
-    "Eclair",
-    "Fudge",
-    "Granola",
-    "Hazelnut",
-    "Ice Cream",
-    "Jely",
-    "Kiwi Fruit",
-    "Lamb",
-    "Macadamia",
-    "Nachos",
-    "Oatmeal",
-    "Palm Oil",
-    "Quail",
-    "Rabbit",
-    "Salad",
-    "T-Bone Steak",
-    "Urid Dal",
-    "Vanilla",
-    "Waffles",
-    "Yam",
-    "Zest"
-  ];
-
-  SimpleAutoCompleteTextField textField;
-  bool showWhichErrorText = false;
 
   @override
   Widget build(BuildContext context) {

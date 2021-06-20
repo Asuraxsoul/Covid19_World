@@ -15,7 +15,6 @@ class _SideDashState extends State<SideDash> {
 
   Color blinkingColor() {
     this.setState(() {
-      Color nextColor;
       if (_color == Colors.redAccent) {
         _color = Colors.redAccent.withOpacity(0);
       } else {

@@ -3,11 +3,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:covid_world/model/sg_info.dart';
-
 import 'package:covid_world/components/sg_info_card.dart';
 import 'package:covid_world/components/line_chart.dart';
 import 'package:covid_world/components/orbit.dart';
-
 import 'package:covid_world/constants.dart';
 import 'package:covid_world/adapt_screen_sizes.dart';
 

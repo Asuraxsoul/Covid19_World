@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'package:covid_world/constants.dart';
 import 'package:covid_world/controllers/menu_controller.dart';
 import 'package:covid_world/screens/main_screen.dart';
+import 'package:covid_world/constants.dart';
 
 void main() {
   runApp(MyApp());

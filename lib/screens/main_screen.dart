@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:covid_world/controllers/menu_controller.dart';
-import 'package:covid_world/adapt_screen_sizes.dart';
-import 'package:covid_world/screens/dashboard_screen.dart';
-
 import 'package:covid_world/components/side_menu.dart';
+import 'package:covid_world/screens/dashboard_screen.dart';
+import 'package:covid_world/adapt_screen_sizes.dart';
 
 class MainScreen extends StatelessWidget {
   @override

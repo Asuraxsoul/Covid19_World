@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
 class Quote {
   final int index;
   final String dailyQuote;

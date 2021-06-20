@@ -1,9 +1,9 @@
-import 'package:covid_world/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:covid_world/model/quotes.dart';
 import 'package:covid_world/adapt_screen_sizes.dart';
+import 'package:covid_world/constants.dart';
 
 class GlowingButton extends StatefulWidget {
   final Color color1;

@@ -1,13 +1,12 @@
-import 'package:covid_world/adapt_screen_sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:covid_world/constants.dart';
-
 import 'package:covid_world/components/header.dart';
 import 'package:covid_world/components/side_dash.dart';
 import 'package:covid_world/components/main_dash.dart';
+import 'package:covid_world/constants.dart';
+import 'package:covid_world/adapt_screen_sizes.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
