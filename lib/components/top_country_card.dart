@@ -48,7 +48,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
         children: [
           Text(
             widget.country,
-            maxLines: 1,
+            maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 fontSize: 15,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:web_scraper/web_scraper.dart';
 import 'dart:async';
 
 import 'package:covid_world/constants.dart';
@@ -11,6 +12,31 @@ class SideDash extends StatefulWidget {
 }
 
 class _SideDashState extends State<SideDash> {
+//----------------Web Scrape---------------------------------------------------
+  bool loaded = false;
+  String caseNum = '';
+  String url = 'https://worldpopulationreview.com';
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  void getData() async {
+    final webScraper = WebScraper(url);
+    if (await webScraper.loadWebPage('/')) {
+      List<Map<String, dynamic>> results =
+          webScraper.getElement('div.center', ['title']);
+      setState(() {
+        loaded = true;
+        caseNum = results[0]['title'];
+      });
+    }
+  }
+//-----------------------------------------------------------------------------
+
+//----------------Color Blink--------------------------------------------------
   Color _color = Colors.redAccent;
 
   Color blinkingColor() {
@@ -26,6 +52,7 @@ class _SideDashState extends State<SideDash> {
     });
     return _color;
   }
+//-----------------------------------------------------------------------------
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +69,7 @@ class _SideDashState extends State<SideDash> {
       child: Column(
         children: [
           TopCountryCard(
-            country: "GLOBAL",
+            country: caseNum,
             countryImage: "assets/icons/globe.svg",
             cases: 175686814,
             deaths: 3803592,
@@ -50,30 +77,58 @@ class _SideDashState extends State<SideDash> {
           SizedBox(
             height: defaultPadding,
           ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: defaultPadding / 4),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                decoration: BoxDecoration(boxShadow: [
-                  BoxShadow(
-                    color: blinkingColor(),
-                    spreadRadius: 1,
-                    blurRadius: 8,
-                    offset: Offset(0, 0),
-                  ),
-                ]),
-                child: Text(
-                  "Highest Risk Countries",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: "Quicksand",
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white70,
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: defaultPadding / 4),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: blinkingColor(),
+                        spreadRadius: 1,
+                        blurRadius: 8,
+                        offset: Offset(0, 0),
+                      ),
+                    ]),
+                    child: Text(
+                      "Highest Risk Countries",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: "Quicksand",
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white70,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: primaryColor,
+                  border: Border.all(color: Colors.white70, width: 2),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                child: TextButton(
+                  child: Text(
+                    "Refresh",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Quicksand',
+                    ),
+                  ),
+                  onPressed: () {
+                    getData();
+                  },
+                ),
+              ),
+            ],
           ),
           SizedBox(
             height: defaultPadding,
@@ -104,7 +159,6 @@ class _SideDashState extends State<SideDash> {
               child: Text(
                 "dashboard last updated:\n17 June 2021, 10PM",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
                   fontSize: 12,
                   color: Colors.white70,
                 ),

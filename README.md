@@ -1,13 +1,13 @@
 # Covid-19 World Situation
 > This application data is scraped from the CNN health website
-> <br>Website: <a href="https://edition.cnn.com/interactive/2020/health/coronavirus-maps-and-cases/" target="_blank">Covid-19 sources</a>
+> <br>Website: <a href="https://worldpopulationreview.com" target="_blank">Population number source</a>
 
 ## Getting Started
 #### Take a look: <a href="https://covid19-sg-37b20.web.app/#/" target="_blank"><u>Covid-19 SG Dashboard</a>
 
 ## Functionalities
-1. Scrape Singapore Covid19 data from website
-2. Auto-refresh (rescrape) when user reloads / press refresh button
+1. Scrape data from website
+2. Auto-refresh (rescrape) when webpage reloads / press refresh button
 3. Daily motivational quote
 4. Links to Singapore facebook link for most recent news
 5. Flutter charts
