@@ -7,12 +7,18 @@ Website design adapted from The Flutter Way youtube.
 
 ## Getting Started
 #### Take a look: <a href="https://covid19-sg-37b20.web.app/#/" target="_blank"><u>Covid-19 SG Dashboard</a>
+https://user-images.githubusercontent.com/54731174/122879746-d2692680-d36b-11eb-9733-dacd7b778f79.mp4
 
    
 ## Displays
-Large Monitor view
-   
-Smaller Desktop views
+#### Large Monitor View
+![monitor-view](https://user-images.githubusercontent.com/54731174/122880006-178d5880-d36c-11eb-83fc-fff24e4ed2d4.JPG)
+
+#### Smaller Desktop Views
+![desktop-view](https://user-images.githubusercontent.com/54731174/122879927-06dce280-d36c-11eb-8025-da7178f893da.JPG)
+![desktop-1](https://user-images.githubusercontent.com/54731174/122880066-296efb80-d36c-11eb-99e7-5340584ad7ca.JPG)
+![desktop-2](https://user-images.githubusercontent.com/54731174/122880073-2d028280-d36c-11eb-8151-4424965a895f.JPG)
+![desktop-3](https://user-images.githubusercontent.com/54731174/122880079-2ecc4600-d36c-11eb-8021-23067e2d89b8.JPG)
 
 ## Learning Points:
 1. Basic web scraping from a website
