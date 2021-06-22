@@ -7,8 +7,7 @@ Website design adapted from The Flutter Way youtube.
 
 ## Getting Started
 #### Take a look: <a href="https://covid19-sg-37b20.web.app/#/" target="_blank"><u>Covid-19 SG Dashboard</a>
-https://user-images.githubusercontent.com/54731174/122879746-d2692680-d36b-11eb-9733-dacd7b778f79.mp4
-
+https://user-images.githubusercontent.com/54731174/122880212-5b805d80-d36c-11eb-9f00-d16a9d53e1ce.mp4
    
 ## Displays
 #### Large Monitor View
